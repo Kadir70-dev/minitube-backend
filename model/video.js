@@ -8,6 +8,7 @@ const videoSchema = new mongoose.Schema({
   likes:       { type: Number, default: 0 },
   comments:    [{ text: String, postedBy: String }],
   createdAt:   { type: Date, default: Date.now }
+  
 });
 
 module.exports = mongoose.model('Video', videoSchema);
