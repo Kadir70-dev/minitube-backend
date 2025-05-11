@@ -1,4 +1,6 @@
 const Video = require('../model/video');
+const redisClient = require('../utils/redisClient');
+const { kafka, producer } = require('../utils/kafka');
 
 exports.uploadVideo = async (req, res) => {
   try {
@@ -10,6 +12,10 @@ exports.uploadVideo = async (req, res) => {
     });
     // Populate uploadedBy after creation
     video = await video.populate('uploadedBy', 'username');
+      // Send Kafka message
+    const kafka = req.app.locals.kafka;
+    await kafka.send({ topic: 'video-uploaded', messages: [{ value: JSON.stringify(video) }] });
+
 
     res.status(201).json(video);
   } catch (err) {
@@ -18,7 +24,13 @@ exports.uploadVideo = async (req, res) => {
 };
 
 exports.getVideos = async (req, res) => {
+  const redis = req.app.locals.redis;
+  const cache = await redis.get('videos');
+  if (cache) return res.json(JSON.parse(cache));
+
+
   const videos = await Video.find().populate('uploadedBy', 'username');
+  await redis.set('videos', JSON.stringify(videos));
   res.json(videos);
 };
 
