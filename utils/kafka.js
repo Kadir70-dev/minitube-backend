@@ -11,6 +11,7 @@ const startConsumer = async () => {
   await consumer.connect();
   console.log('[Kafka] Consumer connected');
   
+  
   await consumer.subscribe({ topic: 'video-uploaded', fromBeginning: false });
 
   await consumer.run({

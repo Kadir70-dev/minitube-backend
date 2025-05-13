@@ -8,6 +8,7 @@ exports.uploadVideo = async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       videoUrl: `/uploads/${req.file.filename}`,
+      
       uploadedBy: req.user.id
       
     });

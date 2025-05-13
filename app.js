@@ -23,14 +23,15 @@ redisClient.connect();
 
 // Kafka setup
 startConsumer();
+
 // const producer = kafka.producer();
 // producer.connect();
 // app.locals.redis = redisClient;
 // app.locals.kafka = producer;
 
 
-
 app.use('/api/auth', authRoutes);
+
 app.use('/api/videos', videoRoutes);
 
 module.exports = app;
