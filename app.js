@@ -9,8 +9,8 @@ const videoRoutes = require('./routes/video');
 
 dotenv.config();
 
-
 const app = express();
+
 mongoose.connect(process.env.MONGO_URI).then(() => console.log('Mongo connected'));
 
 app.use(cors());
@@ -27,10 +27,13 @@ startConsumer();
 // producer.connect();
 // app.locals.redis = redisClient;
 // app.locals.kafka = producer;
+
+
+
 app.use('/api/auth', authRoutes);
 app.use('/api/videos', videoRoutes);
-module.exports = app;
 
+module.exports = app;
 
 // ✅ Only start server if app.js is run directly
 if (require.main === module) {

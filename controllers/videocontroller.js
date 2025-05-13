@@ -15,11 +15,10 @@ exports.uploadVideo = async (req, res) => {
     video = await video.populate('uploadedBy', 'username');
     console.log(video);
     //   Send Kafka message
-
+    //   Send Kafka message
 
     const kafka = req.app.locals.kafka;
     await kafka.send({ topic: 'video-uploaded', messages: [{ value: JSON.stringify(video) }] });
-    
 
 
     res.status(201).json(video);

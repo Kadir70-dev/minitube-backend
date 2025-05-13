@@ -4,7 +4,7 @@ const User = require('../model/user');
 exports.signup = async (req, res) => {
   try {
     const user = await User.create(req.body);
-    console.log(user);
+    // console.log(user);
     // Hash password before saving
     res.status(201).json(user);
   } catch (err) {
