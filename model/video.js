@@ -9,6 +9,7 @@ const videoSchema = new mongoose.Schema({
   comments:    [{ text: String, postedBy: String }],
   createdAt:   { type: Date, default: Date.now }
   
+  
 });
 
 module.exports = mongoose.model('Video', videoSchema);

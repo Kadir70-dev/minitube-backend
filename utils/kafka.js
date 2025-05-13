@@ -16,6 +16,7 @@ const startConsumer = async () => {
       console.log('[Kafka] Video uploaded:', videoData.title);
       // Additional processing logic here (e.g., analytics)
     },
+    
   });
 };
 

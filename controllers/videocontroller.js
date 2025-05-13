@@ -9,6 +9,7 @@ exports.uploadVideo = async (req, res) => {
       description: req.body.description,
       videoUrl: `/uploads/${req.file.filename}`,
       uploadedBy: req.user.id
+      
     });
     // Populate uploadedBy after creation
     video = await video.populate('uploadedBy', 'username');

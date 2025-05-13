@@ -20,6 +20,7 @@ app.use('/uploads', express.static('uploads'));
 const redisClient = redis.createClient({ url: process.env.REDIS_URL });
 redisClient.connect();
 
+
 // Kafka setup
 startConsumer();
 // const producer = kafka.producer();
