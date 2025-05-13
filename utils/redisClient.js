@@ -10,6 +10,7 @@ client.connect()
   })
   .catch((err) => {
     console.error('Error connecting to Redis:', err);
+    
   });
   
 

@@ -10,6 +10,7 @@ describe('Auth API', () => {
   afterAll(async () => {
     await mongoose.connection.dropDatabase(); // Clean up
     await mongoose.connection.close();
+    
 
   });
 
