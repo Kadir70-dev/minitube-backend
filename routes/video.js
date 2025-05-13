@@ -11,4 +11,5 @@ router.get('/', videoCtrl.getVideos);
 router.post('/:id/like', auth, videoCtrl.likeVideo);
 router.post('/:id/comment', auth, videoCtrl.commentVideo);
 
+
 module.exports = router;

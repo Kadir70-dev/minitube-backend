@@ -17,6 +17,7 @@ describe('Auth API', () => {
       username: 'testuser' + Date.now(), // Make unique
       email: `testuser${Date.now()}@example.com`, // Make unique
       password: 'test1234'
+      
     });
 
     console.log(res.body); // Debug any errors
