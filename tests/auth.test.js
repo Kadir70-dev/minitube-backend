@@ -10,6 +10,7 @@ describe('Auth API', () => {
   afterAll(async () => {
     await mongoose.connection.dropDatabase(); // Clean up
     await mongoose.connection.close();
+
   });
 
   it('should signup a new user', async () => {
@@ -24,5 +25,6 @@ describe('Auth API', () => {
 
     expect(res.statusCode).toBe(201);
     expect(res.body).toHaveProperty('_id');
+    
   });
 });
