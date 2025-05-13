@@ -7,7 +7,6 @@ const videoSchema = new mongoose.Schema({
   uploadedBy:  { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   likes:       { type: Number, default: 0 },
   comments:    [{ text: String, postedBy: String }],
-  
   createdAt:   { type: Date, default: Date.now }
   
   
