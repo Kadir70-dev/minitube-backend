@@ -6,11 +6,11 @@ exports.signup = async (req, res) => {
     const user = await User.create(req.body);
     // console.log(user);
     // Hash password before saving
-    
+
     res.status(201).json(user);
   } catch (err) {
     res.status(400).json({ error: err.message });
-    
+
   }
 };
 
